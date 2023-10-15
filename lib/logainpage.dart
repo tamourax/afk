@@ -1,23 +1,40 @@
+import 'package:afk/api.dart';
 import 'package:flutter/material.dart';
 
 class LogainPage extends StatelessWidget {
-  const LogainPage({super.key});
-
+   LogainPage({super.key });
+TextEditingController username = TextEditingController();
+TextEditingController password  = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
         child: Column(children: [
-          textfieldlogin('Username'),
+          textfieldlogin('Username' , username),
           const SizedBox(
             height: 32,
           ),
-          textfieldlogin('Password'),
+          textfieldlogin('Password' , password),
           const SizedBox(
             height: 100,
           ),
-          ElevatedButton(onPressed: () {}, child: const Text('Login'))
+          ElevatedButton(
+              onPressed: () {
+                Api().post(
+                    url: 'https://back.afakyerp.com/API/User/Login',
+                    body: {
+  "userName": username.text ,
+  "password": password.text.toString() ,
+  "langId": 1,
+  "computerName": ""
+  
+  
+} ,
+                    token: null);
+                    
+              },
+              child: const Text('Login'))
         ]),
       ),
       appBar: AppBar(
@@ -26,8 +43,9 @@ class LogainPage extends StatelessWidget {
     );
   }
 
-  TextField textfieldlogin(String hint) {
+  TextField textfieldlogin(String hint , TextEditingController controller) {
     return TextField(
+      controller: controller,
         decoration: InputDecoration(
       hintText: hint,
       border: OutlineInputBorder(borderRadius: BorderRadius.circular(16)),
