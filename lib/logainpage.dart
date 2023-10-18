@@ -1,38 +1,28 @@
-import 'package:afk/api.dart';
+import 'package:afk/helper/apiservice.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart' as http;
 
 class LogainPage extends StatelessWidget {
-   LogainPage({super.key });
-TextEditingController username = TextEditingController();
-TextEditingController password  = TextEditingController();
+  LogainPage({super.key});
+  TextEditingController username = TextEditingController();
+  TextEditingController password = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
         child: Column(children: [
-          textfieldlogin('Username' , username),
+          textfieldlogin('Username', username),
           const SizedBox(
             height: 32,
           ),
-          textfieldlogin('Password' , password),
+          textfieldlogin('Password', password),
           const SizedBox(
             height: 100,
           ),
           ElevatedButton(
               onPressed: () {
-                Api().post(
-                    url: 'https://back.afakyerp.com/API/User/Login',
-                    body: {
-  "userName": username.text ,
-  "password": password.text.toString() ,
-  "langId": 1,
-  "computerName": ""
-  
-  
-} ,
-                    token: null);
-                    
+                Api().post(url: 'https://back.afakyerp.com/API/User/Login');
               },
               child: const Text('Login'))
         ]),
@@ -43,12 +33,12 @@ TextEditingController password  = TextEditingController();
     );
   }
 
-  TextField textfieldlogin(String hint , TextEditingController controller) {
+  TextField textfieldlogin(String hint, TextEditingController controller) {
     return TextField(
-      controller: controller,
+        controller: controller,
         decoration: InputDecoration(
-      hintText: hint,
-      border: OutlineInputBorder(borderRadius: BorderRadius.circular(16)),
-    ));
+          hintText: hint,
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(16)),
+        ));
   }
 }
