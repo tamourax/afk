@@ -1,7 +1,7 @@
 class loginModel {
   
-
-  loginModel({required body});
+  String body;
+  loginModel({required this.body});
 
   factory loginModel.fromJson(jsonData) {
     return loginModel(body: jsonData['token']);

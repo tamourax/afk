@@ -1,19 +1,29 @@
 import 'dart:convert';
+
+import 'package:afk/models/loginmodel/LoginMopdel.dart';
+import 'package:afk/models/loginmodel/paymentmodel/customerlist.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 class Api {
   Future<dynamic> get({required String url, @required String? token}) async {
-    Map<String, String> headers = {};
+    Map<String, String> headers = {
+      'Content-Type': "application/json",
+    };
 
     if (token != null) {
       headers.addAll({'Authorization': 'Bearer $token'});
     }
 
     http.Response response = await http.get(Uri.parse(url), headers: headers);
+    Map<String, dynamic> customelist = jsonDecode(response.body);
+    List<String> customerlist = customelist['customerList']['id'];
+    print(customerlist);
 
     if (response.statusCode == 200) {
       print(response.statusCode);
+      print(ItemsList().itemCode);
       return jsonDecode(response.body);
     } else {
       throw Exception(
@@ -24,12 +34,21 @@ class Api {
   Future<dynamic> post(
       {required String url, required Map<String, dynamic> body}) async {
     Map<String, String> headers = {
-      'Content-Type':"application/json", 
+      'Content-Type': "application/json",
     };
     String jsondata = jsonEncode(body);
 
     http.Response response =
         await http.post(Uri.parse(url), body: jsondata, headers: headers);
+    Map<String, dynamic> Data = jsonDecode(response.body);
+
+    // for (int i = 0; i < 1; i++) {
+    //   logintoken.add(
+    //     loginModel.fromJson(Data['token']),
+    //   );
+
+    // }
+    print(Data['token']);
     print(response.statusCode);
 
     if (response.statusCode == 200) {
