@@ -23,12 +23,14 @@ class LogainPage extends StatelessWidget {
           ),
           ElevatedButton(
               onPressed: () {
-                Api().post(url: 'https://back.afakyerp.com/API/User/Login', body:{
+                Api().post(
+                    url: 'https://back.afakyerp.com/API/User/Login',
+                    body: { 
     "UserName" : "master" ,
     "Password" : "20232023"
-}, token: null);
+}
 
-
+                );
               },
               child: const Text('Login'))
         ]),
