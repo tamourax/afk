@@ -1,19 +1,9 @@
-import 'package:afk/helper/apiservice.dart';
+class loginModel {
+  
 
-class LoginModel {
-  Future<LoginModel> Login({
-    required String Token,
-  }) async {
-    Map<String, dynamic> data =
-        await Api().post(url: 'https://fakestoreapi.com/products', body: {
-      'token': Token,
-    });
+  loginModel({required body});
+
+  factory loginModel.fromJson(jsonData) {
+    return loginModel(body: jsonData['token']);
   }
-
-  // final String? token;
-
-  // LoginModel({required this.token});
-
-  // factory LoginModel.fromJson(Map<String, dynamic>? json) =>
-  //     LoginModel(token: json!['token'] as String);
 }
