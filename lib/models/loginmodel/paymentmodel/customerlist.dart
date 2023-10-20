@@ -1,97 +1,72 @@
+class CustomerList {
+  int? id;
+  String? sceType;
+  String? code;
+  String? customerName;
+  String? tel1;
+  String? tel2;
+  String? mobile;
+  String? fax;
+  String? eMail;
+  String? site;
+  String? address;
+  String? notes;
+  bool? posDefaultCusCash;
+  String? taxRegistrationNo;
+  String? vatNo;
 
-class ItemsList {
-  int? groupId;
-  int? itemId;
-  String? itemCode;
-  String? itemName;
-  bool? mainUnit;
-  bool? defaultUnit;
-  bool? defaultUnitSales;
-  int? unitId;
-  String? unitName;
-  String? barCode;
-  String? barcodeSeparator;
-  bool? exempt;
-  bool? hidePrice;
-  int? salesValue;
-  int? minimumSaleValue;
-  int? taxRate;
-  int? tableTaxRate;
-  int? salesDiscountType;
-  int? salesDiscountValue;
-  bool? automaticDiscountS;
-  bool? useTaxOnTableFees;
+  CustomerList(
+      {this.id,
+      this.sceType,
+      this.code,
+      this.customerName,
+      this.tel1,
+      this.tel2,
+      this.mobile,
+      this.fax,
+      this.eMail,
+      this.site,
+      this.address,
+      this.notes,
+      this.posDefaultCusCash,
+      this.taxRegistrationNo,
+      this.vatNo});
 
-  ItemsList(
-      {this.groupId,
-      this.itemId,
-      this.itemCode,
-      this.itemName,
-      this.mainUnit,
-      this.defaultUnit,
-      this.defaultUnitSales,
-      this.unitId,
-      this.unitName,
-      this.barCode,
-      this.barcodeSeparator,
-      this.exempt,
-      this.hidePrice,
-      this.salesValue,
-      this.minimumSaleValue,
-      this.taxRate,
-      this.tableTaxRate,
-      this.salesDiscountType,
-      this.salesDiscountValue,
-      this.automaticDiscountS,
-      this.useTaxOnTableFees});
-
-  ItemsList.fromJson(Map<String, dynamic> json) {
-    groupId = json['groupId'];
-    itemId = json['itemId'];
-    itemCode = json['itemCode'];
-    itemName = json['itemName'];
-    mainUnit = json['mainUnit'];
-    defaultUnit = json['defaultUnit'];
-    defaultUnitSales = json['defaultUnitSales'];
-    unitId = json['unitId'];
-    unitName = json['unitName'];
-    barCode = json['barCode'];
-    barcodeSeparator = json['barcodeSeparator'];
-    exempt = json['exempt'];
-    hidePrice = json['hidePrice'];
-    salesValue = json['salesValue'];
-    minimumSaleValue = json['minimumSaleValue'];
-    taxRate = json['taxRate'];
-    tableTaxRate = json['tableTaxRate'];
-    salesDiscountType = json['salesDiscountType'];
-    salesDiscountValue = json['salesDiscountValue'];
-    automaticDiscountS = json['automaticDiscountS'];
-    useTaxOnTableFees = json['useTaxOnTableFees'];
+  CustomerList.fromJson(Map<String, dynamic> json) {
+    id = json['id'];
+    sceType = json['sceType'];
+    code = json['code'];
+    customerName = json['customerName'];
+    tel1 = json['tel1'];
+    tel2 = json['tel2'];
+    mobile = json['mobile'];
+    fax = json['fax'];
+    eMail = json['eMail'];
+    site = json['site'];
+    address = json['address'];
+    notes = json['notes'];
+    posDefaultCusCash = json['posDefaultCusCash'];
+    taxRegistrationNo = json['taxRegistrationNo'];
+    vatNo = json['vatNo'];
   }
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['groupId'] = this.groupId;
-    data['itemId'] = this.itemId;
-    data['itemCode'] = this.itemCode;
-    data['itemName'] = this.itemName;
-    data['mainUnit'] = this.mainUnit;
-    data['defaultUnit'] = this.defaultUnit;
-    data['defaultUnitSales'] = this.defaultUnitSales;
-    data['unitId'] = this.unitId;
-    data['unitName'] = this.unitName;
-    data['barCode'] = this.barCode;
-    data['barcodeSeparator'] = this.barcodeSeparator;
-    data['exempt'] = this.exempt;
-    data['hidePrice'] = this.hidePrice;
-    data['salesValue'] = this.salesValue;
-    data['minimumSaleValue'] = this.minimumSaleValue;
-    data['taxRate'] = this.taxRate;
-    data['tableTaxRate'] = this.tableTaxRate;
-    data['salesDiscountType'] = this.salesDiscountType;
-    data['salesDiscountValue'] = this.salesDiscountValue;
-    data['automaticDiscountS'] = this.automaticDiscountS;
-    data['useTaxOnTableFees'] = this.useTaxOnTableFees;
+    data['id'] = this.id;
+    data['sceType'] = this.sceType;
+    data['code'] = this.code;
+    data['customerName'] = this.customerName;
+    data['tel1'] = this.tel1;
+    data['tel2'] = this.tel2;
+    data['mobile'] = this.mobile;
+    data['fax'] = this.fax;
+    data['eMail'] = this.eMail;
+    data['site'] = this.site;
+    data['address'] = this.address;
+    data['notes'] = this.notes;
+    data['posDefaultCusCash'] = this.posDefaultCusCash;
+    data['taxRegistrationNo'] = this.taxRegistrationNo;
+    data['vatNo'] = this.vatNo;
     return data;
   }
 }

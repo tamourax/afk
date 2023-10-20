@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:afk/models/loginmodel/LoginMopdel.dart';
 import 'package:afk/models/loginmodel/paymentmodel/customerlist.dart';
+import 'package:afk/models/loginmodel/paymentmodel/itemlist.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -18,8 +19,9 @@ class Api {
 
     http.Response response = await http.get(Uri.parse(url), headers: headers);
     Map<String, dynamic> customelist = jsonDecode(response.body);
-    List<String> customerlist = customelist['customerList']['id'];
-    print(customerlist);
+    print(response.body);
+    // List<String> customerlist = customelist['customerList']['id'];
+    // print(customerlist);
 
     if (response.statusCode == 200) {
       print(response.statusCode);
