@@ -6,6 +6,9 @@ import 'package:afk/models/loginmodel/paymentmodel/customerlist.dart';
 import 'package:afk/models/loginmodel/paymentmodel/itemlist.dart';
 import 'package:flutter/material.dart';
 
+
+ 
+
 List<DropdownMenuItem<dynamic>>? items = [
   DropdownMenuItem(
     child: Text('id'),
