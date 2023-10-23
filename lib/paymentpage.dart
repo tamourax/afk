@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:afk/helper/apiservice.dart';
 
 import 'package:afk/models/loginmodel/paymentmodel/itemlist.dart';
@@ -22,10 +24,11 @@ class paymentpageState extends State<paymentpage> {
           var response = await Api().get(
               url: 'https://back.afakyerp.com/API/PosForm/GetAll',
               token:
-                  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoibWFzdGVyIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiIxIiwiTGFuZ0lkIjoiMSIsIkNvbXB1dGVyTmFtZSI6IiIsImV4cCI6MTY5Nzk3MzI5OSwiaXNzIjoidGVzdCIsImF1ZCI6InRlc3QifQ.Ip3tZYRzuCwhiYryZOWqJSoo5VD-giZHqhl6Z_udFeA");
+                  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoibWFzdGVyIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiIxIiwiTGFuZ0lkIjoiMSIsIkNvbXB1dGVyTmFtZSI6IiIsImV4cCI6MTY5ODAyOTM4NywiaXNzIjoidGVzdCIsImF1ZCI6InRlc3QifQ.xmOUqDjhEdkxUpirvCkpNKHZwMMSGdg4MLj0bEqr7sE");
 
-          dynamic models = ItemsList.fromJson(response);
-          return models;
+          var models = ItemsList.fromJson(response);
+
+          return [models];
         },
         onChanged: (ItemsList? data) {
           print(data);

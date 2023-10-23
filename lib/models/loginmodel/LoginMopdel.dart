@@ -1,5 +1,4 @@
 class loginModel {
-  
   String body;
   loginModel({required this.body});
 

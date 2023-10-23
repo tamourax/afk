@@ -2,7 +2,6 @@ import 'package:afk/helper/apiservice.dart';
 
 import 'package:flutter/material.dart';
 
-
 class LogainPage extends StatelessWidget {
   LogainPage({super.key});
   TextEditingController username = TextEditingController();
@@ -25,12 +24,7 @@ class LogainPage extends StatelessWidget {
               onPressed: () {
                 Api().post(
                     url: 'https://back.afakyerp.com/API/User/Login',
-                    body: { 
-    "UserName" : "master" ,
-    "Password" : "20232023"
-}
-
-                );
+                    body: {"UserName": "master", "Password": "20232023"});
               },
               child: const Text('Login'))
         ]),

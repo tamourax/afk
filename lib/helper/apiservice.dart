@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-
 import 'package:afk/models/loginmodel/paymentmodel/itemlist.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -24,7 +23,7 @@ class Api {
 
     if (response.statusCode == 200) {
       print(response.statusCode);
-      print(ItemsList().itemCode);
+      // print(ItemsList().itemCode);
       return jsonDecode(response.body);
     } else {
       throw Exception(
