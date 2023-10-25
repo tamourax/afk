@@ -6,3 +6,5 @@ class loginModel {
     return loginModel(body: jsonData['token']);
   }
 }
+
+

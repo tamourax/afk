@@ -16,6 +16,7 @@ class Api {
     }
 
     http.Response response = await http.get(Uri.parse(url), headers: headers);
+    Map<String, dynamic> Data = jsonDecode(response.body);
     Map<String, dynamic> customelist = jsonDecode(response.body);
     print(response.body);
     // List<String> customerlist = customelist['customerList']['id'];
@@ -23,7 +24,7 @@ class Api {
 
     if (response.statusCode == 200) {
       print(response.statusCode);
-      // print(ItemsList().itemCode);
+      print(ItemsList().itemCode);
       return jsonDecode(response.body);
     } else {
       throw Exception(

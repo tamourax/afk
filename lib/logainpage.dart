@@ -9,6 +9,7 @@ class LogainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey,
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
         child: Column(children: [
@@ -21,6 +22,9 @@ class LogainPage extends StatelessWidget {
             height: 100,
           ),
           ElevatedButton(
+              style: ButtonStyle(
+                  backgroundColor: MaterialStatePropertyAll(
+                      const Color.fromARGB(255, 183, 78, 70))),
               onPressed: () {
                 Api().post(
                     url: 'https://back.afakyerp.com/API/User/Login',
@@ -30,6 +34,7 @@ class LogainPage extends StatelessWidget {
         ]),
       ),
       appBar: AppBar(
+        backgroundColor: const Color.fromARGB(255, 183, 78, 70),
         title: const Text('Login Form'),
       ),
     );

@@ -1,3 +1,4 @@
+import 'package:afk/helper/app_route.dart';
 import 'package:afk/logainpage.dart';
 import 'package:afk/paymentform.dart';
 import 'package:afk/paymentpage.dart';
@@ -13,9 +14,14 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: paymentpage(),
+    return SafeArea(
+      child: MaterialApp.router(
+         routeInformationParser: AppRouter.router.routeInformationParser,
+        routerDelegate: AppRouter.router.routerDelegate,
+        routeInformationProvider: AppRouter.router.routeInformationProvider,
+        debugShowCheckedModeBanner: false,
+        
+      ),
     );
   }
 }
