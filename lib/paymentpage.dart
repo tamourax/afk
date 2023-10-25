@@ -1,13 +1,7 @@
-import 'dart:convert';
-
-import 'package:afk/dropdown.dart';
-import 'package:afk/helper/api.dart';
 import 'package:afk/helper/apiservice.dart';
-import 'package:afk/models/loginmodel/LoginMopdel.dart';
+
 import 'package:afk/models/loginmodel/item2.dart';
 
-import 'package:afk/models/loginmodel/paymentmodel/itemlist.dart';
-import 'package:afk/usermodel.dart';
 import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -23,6 +17,7 @@ class paymentpageState extends State<paymentpage> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+        debugShowCheckedModeBanner: false,
         home: Scaffold(
             appBar: AppBar(
                 title: Text('Payment Form'),
@@ -85,7 +80,7 @@ class dropdownlist extends StatelessWidget {
         var response = await Api().get(
             url: 'https://back.afakyerp.com/API/PosForm/GetAll',
             token:
-                'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoibWFzdGVyIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiIxIiwiTGFuZ0lkIjoiMSIsIkNvbXB1dGVyTmFtZSI6IiIsImV4cCI6MTY5ODE1MjA3MCwiaXNzIjoidGVzdCIsImF1ZCI6InRlc3QifQ.telQuRNdbbvMDSV1biuv3RBad1Y_5rKfKxCl8otOFkM');
+                'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoibWFzdGVyIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiIxIiwiTGFuZ0lkIjoiMSIsIkNvbXB1dGVyTmFtZSI6IiIsImV4cCI6MTY5ODIzMzU0MywiaXNzIjoidGVzdCIsImF1ZCI6InRlc3QifQ.GJHGMvh3I8aHp2zVcpxEvOnrrE1ehprwWwvcWNkAmAM');
 
         var models = ItemsList2.fromJson(response);
         return [models];

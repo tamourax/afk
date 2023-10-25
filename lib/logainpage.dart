@@ -1,6 +1,10 @@
+import 'package:afk/assetsdata.dart';
 import 'package:afk/helper/apiservice.dart';
+import 'package:afk/helper/app_route.dart';
+import 'package:afk/paymentpage.dart';
 
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class LogainPage extends StatelessWidget {
   LogainPage({super.key});
@@ -9,17 +13,17 @@ class LogainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey,
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 20),
         child: Column(children: [
-          textfieldlogin('Username', username),
+          Container(child: Image.asset(AssetsData.logo)),
+          textfieldlogin('master', username),
           const SizedBox(
             height: 32,
           ),
-          textfieldlogin('Password', password),
+          textfieldlogin('20232023', password),
           const SizedBox(
-            height: 100,
+            height: 50,
           ),
           ElevatedButton(
               style: ButtonStyle(
@@ -29,6 +33,8 @@ class LogainPage extends StatelessWidget {
                 Api().post(
                     url: 'https://back.afakyerp.com/API/User/Login',
                     body: {"UserName": "master", "Password": "20232023"});
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => paymentpage()));
               },
               child: const Text('Login'))
         ]),
@@ -42,6 +48,8 @@ class LogainPage extends StatelessWidget {
 
   TextField textfieldlogin(String hint, TextEditingController controller) {
     return TextField(
+        readOnly: true,
+        cursorColor: Colors.black,
         controller: controller,
         decoration: InputDecoration(
           hintText: hint,
