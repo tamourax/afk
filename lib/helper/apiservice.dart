@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:afk/models/loginmodel/paymentmodel/itemlist.dart';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
@@ -24,7 +24,7 @@ class Api {
 
     if (response.statusCode == 200) {
       print(response.statusCode);
-      print(ItemsList().itemCode);
+   
       return jsonDecode(response.body);
     } else {
       throw Exception(

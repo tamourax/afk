@@ -1,6 +1,7 @@
 import 'package:afk/helper/apiservice.dart';
 
 import 'package:afk/models/loginmodel/item2.dart';
+import 'package:afk/models/loginmodel/newmodel.dart';
 
 import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/material.dart';
@@ -20,26 +21,26 @@ class paymentpageState extends State<paymentpage> {
         debugShowCheckedModeBanner: false,
         home: Scaffold(
             appBar: AppBar(
-                title: Text('Payment Form'),
+                title: const Text('Payment Form'),
                 backgroundColor: const Color.fromARGB(255, 183, 78, 70)),
             body: Column(
               children: [
-                dropdownlist(),
-                SizedBox(height: 30),
-                dropdownlist(),
-                SizedBox(height: 30),
-                dropdownlist(),
-                SizedBox(height: 30),
-                textfiled(),
-                SizedBox(height: 30),
-                textfiled(),
-                SizedBox(height: 30),
-                textfiled(),
-                SizedBox(height: 50),
+                const dropdownlist(),
+                const SizedBox(height: 30),
+                const dropdownlist(),
+                const SizedBox(height: 30),
+                const dropdownlist(),
+                const SizedBox(height: 30),
+                const textfiled(),
+                const SizedBox(height: 30),
+                const textfiled(),
+                const SizedBox(height: 30),
+                const textfiled(),
+                const SizedBox(height: 50),
                 ElevatedButton(
-                    style: ButtonStyle(
+                    style: const ButtonStyle(
                         backgroundColor: MaterialStatePropertyAll(
-                            const Color.fromARGB(255, 183, 78, 70))),
+                            Color.fromARGB(255, 183, 78, 70))),
                     onPressed: () {},
                     child: const Text('Add'))
               ],
@@ -54,7 +55,7 @@ class textfiled extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return const TextField(
       decoration: InputDecoration(
           contentPadding: EdgeInsets.only(top: 5, left: 10),
           hintText: 'price',
@@ -71,7 +72,7 @@ class dropdownlist extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DropdownSearch<ItemsList2>(
-      dropdownDecoratorProps: DropDownDecoratorProps(
+      dropdownDecoratorProps: const DropDownDecoratorProps(
           dropdownSearchDecoration: InputDecoration(
               labelText: 'select costumer',
               floatingLabelAlignment: FloatingLabelAlignment.center,
@@ -80,7 +81,7 @@ class dropdownlist extends StatelessWidget {
         var response = await Api().get(
             url: 'https://back.afakyerp.com/API/PosForm/GetAll',
             token:
-                'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoibWFzdGVyIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiIxIiwiTGFuZ0lkIjoiMSIsIkNvbXB1dGVyTmFtZSI6IiIsImV4cCI6MTY5ODIzMzU0MywiaXNzIjoidGVzdCIsImF1ZCI6InRlc3QifQ.GJHGMvh3I8aHp2zVcpxEvOnrrE1ehprwWwvcWNkAmAM');
+                'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoibWFzdGVyIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiIxIiwiTGFuZ0lkIjoiMSIsIkNvbXB1dGVyTmFtZSI6IiIsImV4cCI6MTY5ODMwODQxNiwiaXNzIjoidGVzdCIsImF1ZCI6InRlc3QifQ.xM4z-Uhm72V5OUSRIoAmLoq-MtnDfiepXo_eJbK915w');
 
         var models = ItemsList2.fromJson(response);
         return [models];

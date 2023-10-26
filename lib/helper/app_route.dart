@@ -13,7 +13,7 @@ abstract class AppRouter {
     routes: [
       GoRoute(
         path: '/',
-        builder: (context, state) => SplashView(),
+        builder: (context, state) => paymentpage(),
       ),
       GoRoute(
         path: kLoginpage,
@@ -21,7 +21,7 @@ abstract class AppRouter {
       ),
       GoRoute(
         path: kpaymentpage,
-        builder: (context, state) => const paymentpage(),
+        builder: (context, state) => const SplashView(),
       ),
     ],
   );
