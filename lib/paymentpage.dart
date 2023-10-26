@@ -75,17 +75,24 @@ class dropdownlist extends StatelessWidget {
       dropdownDecoratorProps: const DropDownDecoratorProps(
           dropdownSearchDecoration: InputDecoration(
               labelText: 'select costumer',
+              
               floatingLabelAlignment: FloatingLabelAlignment.center,
               contentPadding: EdgeInsets.only(left: 10, top: 5))),
       asyncItems: (String filter) async {
         var response = await Api().get(
             url: 'https://back.afakyerp.com/API/PosForm/GetAll',
             token:
-                'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoibWFzdGVyIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiIxIiwiTGFuZ0lkIjoiMSIsIkNvbXB1dGVyTmFtZSI6IiIsImV4cCI6MTY5ODMwODQxNiwiaXNzIjoidGVzdCIsImF1ZCI6InRlc3QifQ.xM4z-Uhm72V5OUSRIoAmLoq-MtnDfiepXo_eJbK915w');
-
-        var models = ItemsList2.fromJson(response);
-        return [models];
+                'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoibWFzdGVyIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZWlkZW50aWZpZXIiOiIxIiwiTGFuZ0lkIjoiMSIsIkNvbXB1dGVyTmFtZSI6IiIsImV4cCI6MTY5ODM0OTAxMywiaXNzIjoidGVzdCIsImF1ZCI6InRlc3QifQ.nedeQiQJufApYba85hnriSvkFX5AaWxhckYjZq78c38');
+        //Iterate in the Json Response 
+        List<ItemsList2> models = [];
+        for (var item in response['data'][0]['itemsList']) {
+          debugPrint("Item : ${item["groupId"]}");
+            models.add(ItemsList2.fromJson(item));
+        }
+        
+        return models;
       },
+    
       onChanged: (ItemsList2? data) {
         print(data);
       },
